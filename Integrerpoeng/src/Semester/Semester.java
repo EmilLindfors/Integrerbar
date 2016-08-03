@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import Day.Day;
 import Day.DayList;
-import Points.PointHighscore;
 import Points.UserPointTransactions;
 import User.ImportUser;
 import User.RealUser;
@@ -25,9 +24,6 @@ public class Semester {
 	// create a new userList to store all the users and user points
 	private final UserList userList;
 	private final UserPointTransactions userPoints;
-	
-	//highscore calculations
-	private final PointHighscore highscore;
 
 	// amount of days users should work during this semester
 	private final DayList listOfDays;
@@ -62,7 +58,6 @@ public class Semester {
 		this.userList = new UserList();
 		this.userPoints = new UserPointTransactions(userList);
 		this.listOfDays = new DayList();
-		this.highscore = new PointHighscore(userList);
 
 	}
 
@@ -148,31 +143,6 @@ public class Semester {
 	 */
 	public void showPointHistory(String s) {
 		userList.showPointHistory(s);
-	}
-
-	// ************************ highscore methods *****************************
-	
-	/* 
-	 * Show the highscore for all users in UserList though the @see Points.PointHighscore
-	 */
-	public void showTotalHighscore() {
-		highscore.showPointHighscoreForAll();
-	}
-	
-	/* 
-	 * Show the highscore of all users of a certain @see User.Roles though the @see Points.PointHighscore
-	 * @param role String of the role the users have
-	 */
-	public void showHighscoreForRole(String role) {
-		highscore.showPointHighscoreForRole(role);
-	}
-	
-	/* 
-	 * Show the highscore of all users for transactions that have occurred between the dates of this semester 
-	 * Uses @see Points.PointHighscore with @see Semester.Semester#startDate and Semester.Semester#endDate
-	 */
-	public void showSemesterHighscore() {
-		highscore.showHighscoreForPeriod(startDate, endDate);
 	}
 
 	//***************************** day methods **********************************
