@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import User.RealUser;
+import User.UserSortEnums;
 import User.UserList;
 
 public class PrintToConsole {
@@ -13,7 +14,7 @@ public class PrintToConsole {
 		
 		String[] values = {"name","total earned points","total used points"};
 		
-		ArrayList<String> stringList = UserArrayToCSV.AllFields(userList, true);
+		ArrayList<String> stringList = UserArrayToCSV.AllFields(userList, true, UserSortEnums.ROLE);
 		new FormatStringList().toConsoleFormat(stringList, "User List");
 	}
 	

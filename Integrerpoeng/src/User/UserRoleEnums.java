@@ -1,6 +1,6 @@
 package User;
 
-public enum Roles {
+public enum UserRoleEnums {
 	
 	INACTIVE, VOLUNTEER, SUPERVISOR, BOARD, ADMINISTRATION;
 	

@@ -8,14 +8,14 @@ import java.util.ArrayList;
  */
 
 import Day.RealDay;
-import Print.ArrayToCSV;
 import Print.CSVStringBuilder;
 import Print.FormatStringList;
 import Print.PrintToConsole;
 import Print.UserArrayToCSV;
 import Semester.Semester;
 import User.RealUser;
-import User.Roles;
+import User.UserRoleEnums;
+import User.UserSortEnums;
 import User.UserReportBuilder;
 import User.UserReportBuilder.ReportBuilder;
 
@@ -51,9 +51,9 @@ public class application {
 		System.out.println(H2016.getUserList().getUser("test"));
 		
 		
-		//new print method to be implemented by all classes
-		ArrayList<String> list = UserArrayToCSV.withTotalandUsedPoints(H2016.getUserList(), true);
-		ArrayList<String> list2 = UserArrayToCSV.withRole(H2016.getUserList(), true);
+		//new print, takes a user list, with or without header, and sorted by a sort enum
+		ArrayList<String> list = UserArrayToCSV.withTotalandUsedPoints(H2016.getUserList(), true, UserSortEnums.USED_POINTS);
+		ArrayList<String> list2 = UserArrayToCSV.withRole(H2016.getUserList(), true, UserSortEnums.ROLE);
 		FormatStringList.toConsoleFormat(list, "Test ");
 		FormatStringList.toConsoleFormat(list2, "Roles");
 		

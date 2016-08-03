@@ -7,7 +7,7 @@ public class RealUser implements User, Comparable<RealUser> {
 	private final Points points;
 	private final Badges badges;
 	private String name;
-	private Roles role;
+	private UserRoleEnums role;
 	
 	//constructors
 	public RealUser(String n, String r, UserList userList){
@@ -27,22 +27,22 @@ public class RealUser implements User, Comparable<RealUser> {
 		String r = s.toLowerCase();
 		switch(r){
 		case "inactive":
-			role = Roles.INACTIVE;
+			role = UserRoleEnums.INACTIVE;
 			break;
 		case "volunteer":
-			role = Roles.VOLUNTEER;
+			role = UserRoleEnums.VOLUNTEER;
 			break;
 		case "supervisor":
-			role = Roles.SUPERVISOR;
+			role = UserRoleEnums.SUPERVISOR;
 			break;
 		case "board":
-			role = Roles.BOARD;
+			role = UserRoleEnums.BOARD;
 			break;
 		case "admin":
-			role = Roles.ADMINISTRATION;
+			role = UserRoleEnums.ADMINISTRATION;
 			break;
 		default:
-			role = Roles.INACTIVE;
+			role = UserRoleEnums.INACTIVE;
 			System.out.println("Could not find: "+r+". user role set to inactive");
 			break;
 		}
@@ -57,6 +57,12 @@ public class RealUser implements User, Comparable<RealUser> {
 	
 	public Points getPoints() {
 		return points;
+	}
+	public int getTotalPoints() {
+		return points.getTotalPoints();
+	}
+	public int getUsedPoints() {
+		return points.getUsedPoints();
 	}
 
 	@Override

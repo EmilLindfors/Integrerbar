@@ -45,3 +45,15 @@ Could have:
 	Contact users though the app - either by announcements or messaging - TODO
 	
 	
+	
+Would be really cool:
+
+	Let users spend their usable points from their end by sending a transaction request to the system of eg. 
+	
+		User: Name Namesson requests 1 beer for 8 points Accept/deny
+		
+	Which would pop up for the bartenders on the pc or on mobile (if implemented for admin use) and they could 
+	just accept if the user is sober enough and we have the item. This would automatically sort out everything else. 
+	(System will only allow transactions if you have enough points and that use of points is enabled (only internfest).
+	
+	

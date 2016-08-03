@@ -3,7 +3,7 @@ package Points;
 import java.time.LocalDate;
 import java.util.Observable;
 
-import User.Roles;
+import User.UserRoleEnums;
 import User.User;
 import User.UserList;
 
@@ -36,7 +36,7 @@ public class UserPointTransactions extends Observable {
 	}
 	
 	private boolean usePoints(int transaction, User user, LocalDate date, String description){
-		if(user.getRole().equals(Roles.INACTIVE)){
+		if(user.getRole().equals(UserRoleEnums.INACTIVE)){
 			System.out.println("User: "+user.getName()+" is not active, contact an admin");
 			return false;
 		}
