@@ -5,12 +5,12 @@ import java.time.LocalDate;
  * Class to keep track of the transaction at a certain date
  */
 
-public class HistoryInstance {
+public class TransactionHistoryInstance {
 	LocalDate date;
 	int transaction;
 	String description;
 	
-	HistoryInstance(LocalDate d, int t, String s){
+	TransactionHistoryInstance(LocalDate d, int t, String s){
 		this.date = d;
 		this.transaction = t;
 		this.description = s;

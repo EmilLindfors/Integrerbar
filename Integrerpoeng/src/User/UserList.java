@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Observable;
 import java.util.Observer;
 
-import Points.Highscore;
+import Points.FormatHighscore;
 import Points.UserPointTransactions;
 /* List of all Users
  * 
@@ -14,11 +14,11 @@ import Points.UserPointTransactions;
 public class UserList implements Observer {
 	
 	private ArrayList<RealUser> userList;
-	private Highscore highscore;
+	private FormatHighscore highscore;
 	
 	public UserList(){
 		this.userList = new ArrayList<RealUser>();
-		this.highscore = new Highscore();
+		this.highscore = new FormatHighscore();
 	}
 	public void addUsers(RealUser user){
 		userList.add(user);
@@ -56,30 +56,6 @@ public class UserList implements Observer {
 	}
 	public void showPointHistory(String s){
 		getUser(s).getPoints().getPointHistory().showRecords(s);
-	}
-	public void showHighscore(){
-		this.highscore.showHighscore(userList);
-	}
-	public void showHighscoreForRole(String role){
-		ArrayList<RealUser> list = new ArrayList<RealUser>();
-		for(RealUser u: this.userList){
-			if(u.getRole().toString().equalsIgnoreCase(role)){
-			list.add(u);
-			}
-		}
-		this.highscore.showHighscore(list);
-	}
-	public void showHighscoreForPeriod(LocalDate startDate, LocalDate endDate){
-		ArrayList<RealUser> list = new ArrayList<RealUser>();
-		System.out.println("****** Highscores ********");
-		for(RealUser u: this.userList){
-			int sumDuringPeriod = u.getPoints().getPointHistory().getPointsInPeriod(startDate, endDate);
-			System.out.printf("%-30s %d\n",u.getName(),sumDuringPeriod);
-		}
-		Collections.sort(list);
-		System.out.println("**************************\n");
-		
-		
 	}
 }
 

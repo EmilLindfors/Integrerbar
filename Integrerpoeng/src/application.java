@@ -1,6 +1,11 @@
 
 import java.time.LocalDate;
 
+/*
+ * The main class of the Integrerbar application
+ * @author Emil Lindfors
+ */
+
 import Day.RealDay;
 import Semester.Semester;
 
@@ -11,7 +16,7 @@ public class application {
 		Semester H2016 = new Semester("fall 2016");
 		
 		//create users by console and import and add to the list in semester
-		H2016.importUsers("C:/Users/Emil/workspace/Integrerpoeng/src/users.csv");
+		H2016.importUsers("C:/Users/Emil/git/Integrerbar/Integrerpoeng/src/users.csv");
 		H2016.addUser("Test","supervisor",100, 30);
 		
 		//do some transactions

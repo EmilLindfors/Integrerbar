@@ -1,0 +1,47 @@
+Must Have functionality:
+
+	Keeping track of who is working in the bar currently, in a period or all time and their role - implemented
+	
+	Keeping track of how many points the users have earned and log the points - implemented
+	
+	Enable transactions of points between the program and the user to add/subtract points - implemented
+	
+	Keeping track of days integrerbar will be/has been open and who will work/worked that day - partly implemented
+	
+	Letting users sign up to work for a day - TODO
+	
+	Show an electronic version of the internal verification card to the user - TODO
+	
+	
+Should have functionality:
+
+	Showing highscore for a select period, role etc. for a list of users - partly implemented
+	
+	Automatically calculate points earned for working a day - implemented
+	
+	Have a counter of how many days the users should work during a semester and subtract for 
+	each day worked - partly implemented
+	
+	User Badges - Partly implemented
+	
+	Show calendar of days to come - TODO
+	
+	User profile for each user with points earned and spent - TODO
+	
+	Show the verification card on mobile with badges and other stuff - TODO
+	
+	Inventory system with stock keeping and ability to count items - TODO
+	
+	
+	
+Could have:
+
+	Economy functionality - how much Integrerbar earned/spent each day - TODO
+	
+	Match inventory against economy to automatically estimate if any items were stolen, went missing - TODO
+	
+	Push notifications for new days added with the ability to sign up to work during them - TODO
+	
+	Contact users though the app - either by announcements or messaging - TODO
+	
+	
