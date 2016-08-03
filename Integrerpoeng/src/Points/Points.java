@@ -34,6 +34,11 @@ public class Points {
 		return this.totalEarnedPoints - this.usedPoints;
 	}
 	
+	@Override
+	public String toString(){
+		return "Total Earned Points: "+this.getTotalPoints()+",Total Used Points: "+this.getUsedPoints();
+	}
+	
 
 	
 }

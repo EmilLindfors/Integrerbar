@@ -6,19 +6,19 @@ import java.util.Collections;
 import java.util.Observable;
 import java.util.Observer;
 
-import Points.FormatHighscore;
 import Points.UserPointTransactions;
+import Print.FormatStringList;
 /* List of all Users
  * 
  */
 public class UserList implements Observer {
 	
 	private ArrayList<RealUser> userList;
-	private FormatHighscore highscore;
+	private FormatStringList highscore;
 	
 	public UserList(){
 		this.userList = new ArrayList<RealUser>();
-		this.highscore = new FormatHighscore();
+		this.highscore = new FormatStringList();
 	}
 	public void addUsers(RealUser user){
 		userList.add(user);

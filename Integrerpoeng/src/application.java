@@ -7,7 +7,12 @@ import java.time.LocalDate;
  */
 
 import Day.RealDay;
+import Print.ArrayToCSV;
+import Print.FormatStringList;
+import Print.PrintToConsole;
+import Print.UserArrayToCSV;
 import Semester.Semester;
+import User.Roles;
 
 public class application {
 	public static void main(String args[]){
@@ -27,7 +32,6 @@ public class application {
 		
 		//show all transactions for a user, and the Highscore
 		H2016.showPointHistory("Emil Lindfors");
-		H2016.showTotalHighscore();
 		
 		//creates a new day where the bar has been open
 		RealDay day = new RealDay("Åpningsfest","2015-09-17", "19-00", H2016.getUserList());
@@ -39,9 +43,14 @@ public class application {
 			day.processPointsEarned();
 			day2.processPointsEarned();
 
-		H2016.showPointHistory("test");
-		H2016.showHighscoreForRole("volunteer");
-		H2016.showHighscoreForRole("board");
-		H2016.showSemesterHighscore();
+		System.out.println(H2016.getUserList().getUser("test"));
+		
+		
+		//new print method to be implemented by all classes
+		PrintToConsole.printUserArrayList(H2016.getUserList().getList());
+		PrintToConsole.printHighscoreForAll(H2016.getUserList().getList());
+		PrintToConsole.printHighscoreForRole(H2016.getUserList().getList(), "board");
+		PrintToConsole.printHighscoreForPeriod(H2016.getUserList().getList(),  LocalDate.of(2015, 1, 1), LocalDate.of(2015, 12, 20));
+		
 	}
 }

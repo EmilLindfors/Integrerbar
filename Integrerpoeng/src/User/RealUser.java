@@ -81,6 +81,10 @@ public class RealUser implements User, Comparable<RealUser> {
 		//Sorts in descending order, used for highscores
 		return u.getPoints().getTotalPoints() - getPoints().getTotalPoints();
 	}
+	@Override
+	public String toString(){
+		return "Name: "+this.getName()+","+this.getPoints().toString()+",Role:"+this.getRole().toString();
+	}
 	
 	
 }
