@@ -57,5 +57,6 @@ public class UserList implements Observer {
 	public void showPointHistory(String s){
 		getUser(s).getPoints().getPointHistory().showRecords(s);
 	}
+	
 }
 

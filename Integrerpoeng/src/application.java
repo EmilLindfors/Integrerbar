@@ -1,5 +1,6 @@
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /*
  * The main class of the Integrerbar application
@@ -8,11 +9,15 @@ import java.time.LocalDate;
 
 import Day.RealDay;
 import Print.ArrayToCSV;
+import Print.CSVStringBuilder;
 import Print.FormatStringList;
 import Print.PrintToConsole;
 import Print.UserArrayToCSV;
 import Semester.Semester;
+import User.RealUser;
 import User.Roles;
+import User.UserReportBuilder;
+import User.UserReportBuilder.ReportBuilder;
 
 public class application {
 	public static void main(String args[]){
@@ -47,10 +52,12 @@ public class application {
 		
 		
 		//new print method to be implemented by all classes
-		PrintToConsole.printUserArrayList(H2016.getUserList().getList());
-		PrintToConsole.printHighscoreForAll(H2016.getUserList().getList());
-		PrintToConsole.printHighscoreForRole(H2016.getUserList().getList(), "board");
-		PrintToConsole.printHighscoreForPeriod(H2016.getUserList().getList(),  LocalDate.of(2015, 1, 1), LocalDate.of(2015, 12, 20));
+		ArrayList<String> list = UserArrayToCSV.withTotalandUsedPoints(H2016.getUserList(), true);
+		ArrayList<String> list2 = UserArrayToCSV.withRole(H2016.getUserList(), true);
+		FormatStringList.toConsoleFormat(list, "Test ");
+		FormatStringList.toConsoleFormat(list2, "Roles");
 		
+
+
 	}
 }

@@ -4,16 +4,17 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import User.RealUser;
+import User.UserList;
 
 public class PrintToConsole {
 
 	
-	public static void printUserArrayList(ArrayList<RealUser> list){
+	public static void printUserArrayList(UserList userList){
 		
 		String[] values = {"name","total earned points","total used points"};
 		
-		ArrayList<String> stringList = new UserArrayToCSV().formatToStringList(list, values);
-		new FormatStringList().toConsoleFormat(stringList, "User List", values);
+		ArrayList<String> stringList = UserArrayToCSV.AllFields(userList, true);
+		new FormatStringList().toConsoleFormat(stringList, "User List");
 	}
 	
 	public static void printHighscoreForAll(ArrayList<RealUser> list){
@@ -21,7 +22,7 @@ public class PrintToConsole {
 		String[] values = {"name","total earned points"};
 		
 		ArrayList<String> stringList = new HighscoreArrayToCSV(list).formatAll(values);
-		new FormatStringList().toConsoleFormat(stringList, "Highscore for All Users", values);
+		new FormatStringList().toConsoleFormat(stringList, "Highscore for All Users");
 	}
 	
 	public static void printHighscoreForRole(ArrayList<RealUser> list, String role){
@@ -29,7 +30,7 @@ public class PrintToConsole {
 		String[] values = {"name","total earned points"};
 		
 		ArrayList<String> stringList = new HighscoreArrayToCSV(list).formatRole(role);
-		new FormatStringList().toConsoleFormat(stringList, "Highscore for "+role, values);
+		new FormatStringList().toConsoleFormat(stringList, "Highscore for "+role);
 		
 		
 	}
@@ -39,7 +40,7 @@ public class PrintToConsole {
 		String[] values = {"name","total earned points"};
 		
 		ArrayList<String> stringList = new HighscoreArrayToCSV(list).formatPeriod(startDate, endDate);
-		new FormatStringList().toConsoleFormat(stringList, "Highscores "+startDate.toString()+" to "+endDate.toString(), values);
+		new FormatStringList().toConsoleFormat(stringList, "Highscores "+startDate.toString()+" to "+endDate.toString());
 		
 		
 	}

@@ -3,55 +3,105 @@ package Print;
 import java.util.ArrayList;
 import java.util.Comparator;
 import User.RealUser;
+import User.UserList;
+import User.UserReportBuilder;
+import User.UserReportBuilder.ReportBuilder;
 
-public class UserArrayToCSV implements ArrayToCSV {
+public class UserArrayToCSV {
+	
+	/*
+	 * Takes a userList and prints formatted lists, either with headers or without
+	 */
 
-	
-	
-	
-	@Override
-	public ArrayList<String> formatToStringList(ArrayList<? extends Object> list, String[] valueList) {
+	public static ArrayList<String> AllFields(UserList list, boolean addHeader) {
 
 		ArrayList<String> formattedList = new ArrayList<String>();
-
-		// perform a check to see if the array is a RealUserArray
-		if (!list.get(0).getClass().equals(RealUser.class)) {
-			System.out.println("Error: List is not a UserList");
-			return formattedList;
-		}
-
-		@SuppressWarnings("unchecked")
-		ArrayList<RealUser> userList = (ArrayList<RealUser>) list;
+		ArrayList<RealUser> usr = list.getList();
 		
-		//sort by name
-		userList.sort(Comparator.comparing(RealUser::getName));
-
-		for (RealUser u : userList) {
-			String temp = "";
-
-			for (String values : valueList){
-
-
-				switch (values) {
-				case "name":
-					temp += (u.getName());
-					break;
-				case "total earned points":
-					temp += ("," + (u.getPoints().getTotalPoints()));
-					break;
-				case "total used points":
-					temp += ("," + u.getPoints().getUsedPoints());
-					break;
-				case "role":
-					temp += ("," + u.getRole());
-					break;
-
-				}
-			}
-			formattedList.add(temp);
+		if(addHeader){
+			formattedList.add("Name,Total Points,Used Points,Role");
 		}
+		
+		for(RealUser u : usr){
 
+			UserReportBuilder report = new ReportBuilder(list.getUser(u.getName())).withTotalPoints().withUsedPoints().withRole().build();
+			formattedList.add((String) report.toString());	
+		}
+		
 		return formattedList;
+
+	}
+	
+	public static ArrayList<String> withTotalandUsedPoints(UserList list, boolean addHeader) {
+
+		ArrayList<String> formattedList = new ArrayList<String>();
+		ArrayList<RealUser> usr = list.getList();
+		
+		if(addHeader){
+			formattedList.add("name,Total Points,Used Points");
+		}
+		
+		for(RealUser u : usr){
+			UserReportBuilder report = new ReportBuilder(list.getUser(u.getName())).withTotalPoints().withUsedPoints().build();
+			formattedList.add((String) report.toString());	
+		}
+		
+		return formattedList;
+
+	}
+	
+	public static ArrayList<String> withTotalPoints(UserList list, boolean addHeader) {
+
+		ArrayList<String> formattedList = new ArrayList<String>();
+		ArrayList<RealUser> usr = list.getList();
+		
+		if(addHeader){
+			formattedList.add("Name,Total Points");
+		}
+		
+		for(RealUser u : usr){
+			UserReportBuilder report = new ReportBuilder(list.getUser(u.getName())).withTotalPoints().build();
+			formattedList.add((String) report.toString());	
+		}
+		
+		return formattedList;
+
+	}
+	
+	public static ArrayList<String> withUsedPoints(UserList list, boolean addHeader) {
+
+		ArrayList<String> formattedList = new ArrayList<String>();
+		ArrayList<RealUser> usr = list.getList();
+		
+		if(addHeader){
+			formattedList.add("Name,Used Points");
+		}
+		
+		for(RealUser u : usr){
+			UserReportBuilder report = new ReportBuilder(list.getUser(u.getName())).withUsedPoints().build();
+			formattedList.add((String) report.toString());	
+		}
+		
+		return formattedList;
+
+	}
+	
+	public static ArrayList<String> withRole(UserList list, boolean addHeader) {
+
+		ArrayList<String> formattedList = new ArrayList<String>();
+		ArrayList<RealUser> usr = list.getList();
+		
+		if(addHeader){
+			formattedList.add("Name,Role");
+		}
+		
+		for(RealUser u : usr){
+			UserReportBuilder report = new ReportBuilder(list.getUser(u.getName())).withRole().build();
+			formattedList.add((String) report.toString());	
+		}
+		
+		return formattedList;
+
 	}
 
 }

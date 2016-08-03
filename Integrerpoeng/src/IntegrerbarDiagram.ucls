@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="User.NullUser" project="Integrerpoeng" 
     file="/Integrerpoeng/src/User/NullUser.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="731" y="690"/>    
+    <position height="-1" width="-1" x="574" y="697"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </enumeration>  
   <class id="5" language="java" name="User.UserList" project="Integrerpoeng" 
     file="/Integrerpoeng/src/User/UserList.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1100" y="618"/>    
+    <position height="-1" width="-1" x="880" y="483"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <interface id="7" language="java" name="User.User" project="Integrerpoeng" file="/Integrerpoeng/src/User/User.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="886" y="685"/>    
+    <position height="-1" width="-1" x="729" y="692"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="Points.UserPointTransactions" project="Integrerpoeng" 
     file="/Integrerpoeng/src/Points/UserPointTransactions.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="344" y="600"/>    
+    <position height="-1" width="-1" x="229" y="540"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="Day.Day" project="Integrerpoeng" file="/Integrerpoeng/src/Day/Day.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1048" y="104"/>    
+    <position height="-1" width="-1" x="865" y="264"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="Day.NullDay" project="Integrerpoeng" file="/Integrerpoeng/src/Day/NullDay.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="923" y="279"/>    
+    <position height="-1" width="-1" x="879" y="108"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="Day.DayList" project="Integrerpoeng" file="/Integrerpoeng/src/Day/DayList.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1025" y="-71"/>    
+    <position height="-1" width="-1" x="633" y="192"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -138,7 +138,7 @@
   </class>  
   <class id="16" language="java" name="Day.RealDay" project="Integrerpoeng" file="/Integrerpoeng/src/Day/RealDay.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1169" y="342"/>    
+    <position height="-1" width="-1" x="1133" y="250"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

@@ -4,20 +4,22 @@ import Badges.Badges;
 import Points.Points;
 
 public class RealUser implements User, Comparable<RealUser> {
-	private Points points;
+	private final Points points;
+	private final Badges badges;
 	private String name;
-	private Badges badges;
 	private Roles role;
 	
 	//constructors
 	public RealUser(String n, String r, UserList userList){
 		setName(n);
-		setPoints(new Points(0,0));
+		this.points = new Points(0,0);
+		this.badges = new Badges();
 		setRole(r);
 	}
 	public RealUser(String n, String r, int earnedPoints, int usedPoints, UserList userList){
 		setName(n);
-		setPoints(new Points(earnedPoints,usedPoints));
+		this.points = new Points(earnedPoints,usedPoints);
+		this.badges = new Badges();
 		setRole(r);
 		
 	}
@@ -56,9 +58,7 @@ public class RealUser implements User, Comparable<RealUser> {
 	public Points getPoints() {
 		return points;
 	}
-	public void setPoints(Points pts) {
-		this.points = pts;
-	}
+
 	@Override
 	public String getName() {
 		return name;
@@ -72,9 +72,6 @@ public class RealUser implements User, Comparable<RealUser> {
 	}
 	public Badges getBadges() {
 		return badges;
-	}
-	public void setBadges(Badges badges) {
-		this.badges = badges;
 	}
 	@Override
 	public int compareTo(RealUser u) {
