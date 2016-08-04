@@ -9,12 +9,6 @@ import Points.Points;
 public class NullUser implements User {
 
 	@Override
-	public boolean isNil() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
 	public String getName() {
 		System.out.println("Did not find user by that name");
 		return "null user";

@@ -1,28 +1,58 @@
 package User;
 
+import java.time.LocalDate;
+
 import Badges.Badges;
 import Points.Points;
 
 public class RealUser implements User, Comparable<RealUser> {
+	
+	//stores an obejct whith the users badges
 	private final Points points;
+	
+	//stores an obejct whith the users badges
 	private final Badges badges;
-	private String name;
+	
+	//Full name of the user
+	private String fullName;
+	
+	//enum list of possible roles the user can have
 	private UserRoleEnums role;
 	
-	//constructors
+	//lists of organisations
+	private final ListOfPartOfOrganisations orgs;
+	
+	//**************** Constructors ******************************
+	
+	// with 0 points
 	public RealUser(String n, String r, UserList userList){
 		setName(n);
+		this.orgs = new ListOfPartOfOrganisations();
 		this.points = new Points(0,0);
 		this.badges = new Badges();
 		setRole(r);
 	}
+	
+	// with an intial amount of points for total points and used points
 	public RealUser(String n, String r, int earnedPoints, int usedPoints, UserList userList){
 		setName(n);
+		this.orgs = new ListOfPartOfOrganisations();
 		this.points = new Points(earnedPoints,usedPoints);
 		this.badges = new Badges();
-		setRole(r);
-		
+		setRole(r);	
 	}
+	// with an intial amount of points for total points and used points and start date
+	public RealUser(String n, String r, int earnedPoints, int usedPoints, UserList userList, String Organisation, String startDate){
+		setName(n);
+		this.orgs = new ListOfPartOfOrganisations();
+		this.points = new Points(earnedPoints,usedPoints);
+		this.badges = new Badges();
+		setRole(r);	
+	}
+	
+	//******************* Setters ******************************
+	
+	//sets the role of the user from a string
 	public void setRole(String s){
 		String r = s.toLowerCase();
 		switch(r){
@@ -47,12 +77,19 @@ public class RealUser implements User, Comparable<RealUser> {
 			break;
 		}
 	}
-	public String getRole(){
-		return role.toString();
+	
+	public void setName(String name) {
+		this.fullName = name;
 	}
-	@Override
+
 	public void addPoints(int pts){
 		getPoints().earnPoints(pts);
+	}
+	
+	//*************** getters**********************************
+	
+	public String getRole(){
+		return role.toString();
 	}
 	
 	public Points getPoints() {
@@ -64,21 +101,15 @@ public class RealUser implements User, Comparable<RealUser> {
 	public int getUsedPoints() {
 		return points.getUsedPoints();
 	}
-
-	@Override
 	public String getName() {
-		return name;
-	}
-	@Override
-	public boolean isNil(){
-		return false;
-	}
-	public void setName(String name) {
-		this.name = name;
+		return fullName;
 	}
 	public Badges getBadges() {
 		return badges;
 	}
+	
+	//*************** other methods ****************************
+	
 	@Override
 	public int compareTo(RealUser u) {
 		//Sorts in descending order, used for highscores
