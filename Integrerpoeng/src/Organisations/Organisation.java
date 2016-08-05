@@ -27,5 +27,13 @@ public class Organisation {
 		this.enablePoints = points;
 		this.userList = userList;
 	}
+	
+	/**
+	 * Enables the use of points for an org
+	 */
+	
+	public void setEnablePoints(){
+		this.enablePoints = true;
+	}
 
 }

@@ -18,8 +18,14 @@ import Print.CSVStringBuilder;
 import Print.FormatStringList;
 import Print.PrintToConsole;
 import Print.UserArrayToCSV;
-import Semester.Semester;
+import Shift.ImportShift;
+import Shift.Shift;
+import System.Import;
+import TimePeriod.TimePeriod;
+import User.ImportUser;
+import User.OrganisationRoleEnums;
 import User.RealUser;
+import User.User;
 import User.UserList;
 import User.UserRoleEnums;
 import User.UserSortEnums;
@@ -34,6 +40,7 @@ public class application {
 		 * Each semester has its own UserList object that is a copy of the masterList without those who quit before 
 		 * and otherwise are inactive.
 		 */
+		
 		UserList masterUserList = new UserList();
 		
 		//one master DayList to keep track of all the days
@@ -46,31 +53,11 @@ public class application {
 		Organisation Realistutvalget = new Organisation("Realistutvalget", TypeOfOrganisation.PARTNERS, false, masterUserList);
 		Organisation LFFH = new Organisation("Linjeforeningen for Fiskehelse og Havbruk", TypeOfOrganisation.PARTNERS, false, masterUserList);
 		
-		//create a semester either spring or fall + year, should keep track of the days of that period
-		Semester H2016 = new Semester("fall 2016");
-		
-		
-		//class to enable transations of userpoints	
-		UserPointTransactions userPoints = new UserPointTransactions(masterUserList);
-		
 
 		
-		//create users by console and import and add to the list in semester
-		H2016.importUsers("C:/Users/Emil/git/Integrerbar/Integrerpoeng/src/users.csv");
-		H2016.addUser("Test","supervisor",100, 30);
-		
-		//do some transactions
-		H2016.addPointsToUserNow(30,"Emil Lindfors", "For some reason");
-		H2016.usePointsFromUserAtDate(20, "Emil Lindfors", LocalDate.of(2016, 2, 20), "Happy birthday!");
-		H2016.addPointsToUserAtDate(200, "test", LocalDate.of(2016, 9, 20), "Semester highscore!");
-		H2016.addPointsToUserAtDate(20, "Emil Lindfors", LocalDate.of(2016, 10, 20), "Some day");
-		
-		//show all transactions for a user, and the Highscore
-		H2016.showPointHistory("Emil Lindfors");
-		
 		//creates a new day where the bar has been open
-		RealDay day = new RealDay("Åpningsfest","2015-09-17", "19-00", H2016.getUserList());
-		RealDay day2 = new RealDay("Testdag","2015-11-27", "16-03", H2016.getUserList());
+		RealDay day = new RealDay("Åpningsfest","2015-09-17", "19-00", masterUserList);
+		RealDay day2 = new RealDay("Testdag","2015-11-27", "16-03", masterUserList);
 		day.addUser("test", "blabla", "20-24");
 		day2.addUser("test", "supervisor", "16-03");
 
@@ -78,17 +65,25 @@ public class application {
 			day.processPointsEarned();
 			day2.processPointsEarned();
 
-		System.out.println(H2016.getUserList().getUser("test"));
+		System.out.println(masterUserList.getUser("test"));
 		
 		
 		//new print, takes a user list, with or without header, and sorted by a sort enum
-		ArrayList<String> list = UserArrayToCSV.withTotalandUsedPoints(H2016.getUserList(), true, UserSortEnums.USED_POINTS);
-		ArrayList<String> list2 = UserArrayToCSV.withRole(H2016.getUserList(), true, UserSortEnums.ROLE);
+		ArrayList<String> list = UserArrayToCSV.withTotalandUsedPoints(masterUserList, true, UserSortEnums.USED_POINTS);
+		ArrayList<String> list2 = UserArrayToCSV.withRole(masterUserList, true, UserSortEnums.ROLE);
 		FormatStringList.toConsoleFormat(list, "Test ");
 		FormatStringList.toConsoleFormat(list2, "Roles");
 		
-		System.out.println(ValidateInput.validateDate("1987-2-20"));
+		RealUser emil = new RealUser("Emil", "Bord", 1000,500,"Integrerbar", OrganisationRoleEnums.LEADER, "2015-01-04", "2016-01-20");
+		System.out.println(emil);
 		
+		ImportShift shiftImport = new ImportShift();
+		
+		ImportUser imp = new ImportUser("C:/Users/Emil/git/Integrerbar/Integrerpoeng/src/dager.csv");
+
+		//ArrayList<String> importedList = shiftImport.ImportFile("C:/Users/Emil/git/Integrerbar/Integrerpoeng/src/dager.csv");
+		//ArrayList<Shift>  list5 = shiftImport.turnListToShiftObjects(importedList);
+		//FormatStringList.toConsoleFormat(importedList, "Day imports");
 
 
 	}

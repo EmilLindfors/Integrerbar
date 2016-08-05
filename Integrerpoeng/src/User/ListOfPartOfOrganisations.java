@@ -6,12 +6,21 @@ import java.util.ArrayList;
 import InputValidation.StringToLocalDate;
 
 public class ListOfPartOfOrganisations {
-	private final ArrayList<PartOfOrganisation> partOfOgransiations;
+	private final ArrayList<PartOfOrganisation> partOfOrg;
 
 	ListOfPartOfOrganisations() {
-		this.partOfOgransiations = new ArrayList<PartOfOrganisation>();
+		this.partOfOrg = new ArrayList<PartOfOrganisation>();
 	}
-
+	
+	/**
+	 * Set the User as a part of an organisation in a time period
+	 * @param name Name of the org
+	 * @param role Users Role in the org
+	 * @param start When the user started
+	 * @param end When the user quit
+	 * @return
+	 */
+	
 	public boolean SetOrgByNameRoleStartEnd(String name, OrganisationRoleEnums role, String start, String end) {
 			//use helper class to validate and convert string to LocalDate
 			LocalDate date1 = StringToLocalDate.createNewLocalDate(start);
@@ -24,7 +33,7 @@ public class ListOfPartOfOrganisations {
 	public boolean setPartOfOrganisation(PartOfOrganisation org) {
 
 		if (!checkIfExist(org)) {
-			this.partOfOgransiations.add(org);
+			this.partOfOrg.add(org);
 			return true;
 		}
 		return false;
@@ -33,12 +42,20 @@ public class ListOfPartOfOrganisations {
 
 	private boolean checkIfExist(PartOfOrganisation org) {
 
-		for (PartOfOrganisation po : partOfOgransiations) {
+		for (PartOfOrganisation po : partOfOrg) {
 			if (po.getNameOfOrganiasation().equals(org.getNameOfOrganiasation())) {
 				return true;
 			}
 		}
 
 		return false;
+	}
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		for(PartOfOrganisation po : partOfOrg ){
+			sb.append(po.toString()+",");
+		}
+		return sb.toString();
 	}
 }

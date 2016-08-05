@@ -24,8 +24,12 @@ public class RealUser implements User, Comparable<RealUser> {
 	
 	//**************** Constructors ******************************
 	
-	// with 0 points
-	public RealUser(String n, String r, UserList userList){
+	/**
+	 *  RealUser with 0 points
+	 * @param n name of the user
+	 * @param r String with role of user @see UserRoleEnums
+	 */
+	public RealUser(String n, String r){
 		setName(n);
 		this.orgs = new ListOfPartOfOrganisations();
 		this.points = new Points(0,0);
@@ -33,21 +37,39 @@ public class RealUser implements User, Comparable<RealUser> {
 		setRole(r);
 	}
 	
-	// with an intial amount of points for total points and used points
-	public RealUser(String n, String r, int earnedPoints, int usedPoints, UserList userList){
+	/**
+	 * RealUser with a starting amount of points
+	 * @param n String name of user
+	 * @param r String role of user
+	 * @param earnedPoints int total earned points
+	 * @param usedPoints int total used points
+	 */
+	public RealUser(String n, String r, int earnedPoints, int usedPoints){
 		setName(n);
 		this.orgs = new ListOfPartOfOrganisations();
 		this.points = new Points(earnedPoints,usedPoints);
 		this.badges = new Badges();
 		setRole(r);	
 	}
-	// with an intial amount of points for total points and used points and start date
-	public RealUser(String n, String r, int earnedPoints, int usedPoints, UserList userList, String Organisation, String startDate){
+
+	/**
+	 * RealUser with starting amount of points and an organisation
+	 * @param n String name of user
+	 * @param r String role of user
+	 * @param earnedPoints int total earned points
+	 * @param usedPoints int total used points
+	 * @param organisation name of the organisation
+	 * @param orgRole @see OrganisationRoleEnums
+	 * @param startDate string YYYY-MM-DD
+	 * @param endDate string YYYY-MM-DD
+	 */
+	public RealUser(String n, String r, int earnedPoints, int usedPoints, String organisation, OrganisationRoleEnums orgRole, String startDate, String endDate){
 		setName(n);
 		this.orgs = new ListOfPartOfOrganisations();
 		this.points = new Points(earnedPoints,usedPoints);
 		this.badges = new Badges();
 		setRole(r);	
+		orgs.SetOrgByNameRoleStartEnd(organisation, orgRole, startDate, endDate);
 	}
 	
 	//******************* Setters ******************************
@@ -107,6 +129,9 @@ public class RealUser implements User, Comparable<RealUser> {
 	public Badges getBadges() {
 		return badges;
 	}
+	public ListOfPartOfOrganisations getOrganisation(){
+		return orgs;
+	}
 	
 	//*************** other methods ****************************
 	
@@ -117,7 +142,7 @@ public class RealUser implements User, Comparable<RealUser> {
 	}
 	@Override
 	public String toString(){
-		return "Name: "+this.getName()+","+this.getPoints().toString()+",Role:"+this.getRole().toString();
+		return "Name: "+this.getName()+","+this.getPoints().toString()+",Role:"+this.getRole().toString()+this.getOrganisation().toString();
 	}
 	
 	

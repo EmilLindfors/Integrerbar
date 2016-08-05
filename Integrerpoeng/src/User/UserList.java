@@ -15,6 +15,7 @@ public class UserList implements Observer {
 	
 	private ArrayList<RealUser> userList;
 	private FormatStringList highscore;
+	private boolean enablePoints;
 	
 	public UserList(){
 		this.userList = new ArrayList<RealUser>();
@@ -56,6 +57,12 @@ public class UserList implements Observer {
 	}
 	public void showPointHistory(String s){
 		getUser(s).getPoints().getPointHistory().showRecords(s);
+	}
+	
+	//needs to be called to enable points for users
+	public void setEnablePoints(){
+		this.enablePoints = true;
+		//add enabling of points for all the users
 	}
 	
 }

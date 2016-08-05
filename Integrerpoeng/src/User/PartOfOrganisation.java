@@ -9,7 +9,13 @@ public class PartOfOrganisation {
 	private LocalDate endDate;
 	private OrganisationRoleEnums organisationRole;
 	
-	
+	/**
+	 * 
+	 * @param nameOfOrganiasation - The String name of the organisation
+	 * @param organisationRole - Users role in the organisation
+	 * @param startDate - When user started in org
+	 * @param endDate - when user quit or will quit
+	 */
 	
 	public PartOfOrganisation(String nameOfOrganiasation,OrganisationRoleEnums organisationRole, LocalDate startDate, LocalDate endDate) {
 		super();
@@ -43,6 +49,10 @@ public class PartOfOrganisation {
 	}
 	public void setOrganisationRole(OrganisationRoleEnums organisationRole) {
 		this.organisationRole = organisationRole;
+	}
+	
+	public String toString(){
+		return this.nameOfOrganiasation+","+this.organisationRole+","+this.startDate+","+this.endDate;
 	}
 
 }
