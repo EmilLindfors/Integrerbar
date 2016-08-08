@@ -8,10 +8,11 @@ import java.util.Observer;
 
 import Points.UserPointTransactions;
 import Print.FormatStringList;
+import System.UserOperations;
 /* List of all Users
  * 
  */
-public class UserList implements Observer {
+public class UserList implements Observer, UserOperations {
 	
 	private ArrayList<RealUser> userList;
 	private FormatStringList highscore;
@@ -24,6 +25,7 @@ public class UserList implements Observer {
 	public void addUsers(RealUser user){
 		userList.add(user);
 	}
+	
 	
 	//find user by name
 	public User getUser(String name){
@@ -63,6 +65,19 @@ public class UserList implements Observer {
 	public void setEnablePoints(){
 		this.enablePoints = true;
 		//add enabling of points for all the users
+	}
+	/**
+	 * Add a CSV String of user:
+	 * @param user s[0] = name +","+ s[1] = birth date +"," s[2] = Organisation + ","+ s[3] = roleInOrganisation
+	 * 
+	 */
+	@Override
+	public void addUser(String user) {
+		String[] s = user.split(",");
+		assert(s.length==4);
+		userList.add(new RealUser(s[0], s[1],s[2],s[3]));
+		System.out.println("added user to userlist");
+		
 	}
 	
 }

@@ -1,6 +1,6 @@
 package TimePeriod;
 
-import Organisations.EnableOrganisations;
+import Organisations.OrganisationSetup;
 
 public class EnableTimePeriod {
 	

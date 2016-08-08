@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import InputValidation.StringToLocalDate;
+import Organisations.OrganisationRoleEnums;
 
 public class ListOfPartOfOrganisations {
 	private final ArrayList<PartOfOrganisation> partOfOrg;

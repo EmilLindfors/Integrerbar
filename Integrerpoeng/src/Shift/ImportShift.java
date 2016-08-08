@@ -1,55 +1,55 @@
 package Shift;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+
 import java.util.ArrayList;
+
+import com.opencsv.CSVReader;
 
 import System.Import;
 
+//NEEDS TO BE REMODELED
 public class ImportShift implements Import {
 
 	@Override
-	public ArrayList<String> ImportFile(String path) {
+	public ArrayList<String> ImportFile(String file) {
 
 		ArrayList<String> imported = new ArrayList<String>();
 
-		BufferedReader br;
 		try {
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8));
-			String line;
-			while ((line = br.readLine()) != null) {
-				// use comma as separator
-				String[] shft = line.split(",");
 
-				for (String s : shft) {
-					if (!s.equals("")) {
+			CSVReader reader = new CSVReader(new FileReader(file));
+			String[] nextLine;
+			while ((nextLine = reader.readNext()) != null) {
 
-						imported.add(s + ",");
+				for (String s : nextLine) {
+					if(!s.equals("")){
+					imported.add(s+",");
 					}
 				}
-
 			}
-			br.close();
 
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("Failed to read users file.");
+			e.printStackTrace();
 		}
+
 		return imported;
 	}
 
-	public ArrayList<Shift> turnListToShiftObjects(ArrayList<String> list) {
+	public void turnListToShiftObjects(ArrayList<String> list) {
 		ArrayList<Shift> shifts = new ArrayList<Shift>();
 		for (String s : list) {
 			String[] shft = s.split(",");
-
-			for (int i = 0; i < shft.length-1; i++) {
+			System.out.println(s);
+			for (int i = 0; i < shft.length - 1; i++) {
+				System.out.println(shft[0]);
 				shifts.add(new Shift(shft[0], shft[1], shft[2], shft[3]));
 			}
 
 		}
-		return null;
 	}
 }

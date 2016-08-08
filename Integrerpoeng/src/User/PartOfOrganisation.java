@@ -2,6 +2,8 @@ package User;
 
 import java.time.LocalDate;
 
+import Organisations.OrganisationRoleEnums;
+
 public class PartOfOrganisation {
 	
 	private String nameOfOrganiasation;

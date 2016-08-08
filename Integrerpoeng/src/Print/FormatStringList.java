@@ -16,6 +16,9 @@ public class FormatStringList  {
 	
 	public static void toConsoleFormat(ArrayList<String> list, String headerName){
 		
+		if(list.isEmpty()){
+			System.out.println("Printing to console Error: The List "+headerName+" is empty");
+		}else{
 		
 		//********** create header ***************
 		
@@ -49,6 +52,7 @@ public class FormatStringList  {
 			footer +="*";
 		}
 		System.out.println(footer);
+		}
 
 	}
 

@@ -1,6 +1,6 @@
 package Points;
 
-import Organisations.EnableOrganisations;
+import Organisations.OrganisationSetup;
 import Organisations.Organisation;
 import User.UserList;
 
@@ -38,7 +38,7 @@ public class EnablePoints {
 	public boolean EnablePointsForOrg(Organisation org) {
 
 		// first check if Organisations are actually enabled
-		if (EnableOrganisations.checkIfEnabled()) {
+		if (OrganisationSetup.checkIfEnabled()) {
 
 			// enables points in the org
 			org.setEnablePoints();
@@ -58,7 +58,7 @@ public class EnablePoints {
 
 	public boolean EnablePointsForUsers(UserList userlist) {
 		// first check if Organisations are actually disabled
-		if (!EnableOrganisations.checkIfEnabled()) {
+		if (!OrganisationSetup.checkIfEnabled()) {
 
 			// enables points in the userList
 			userlist.setEnablePoints();

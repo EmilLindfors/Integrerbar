@@ -3,6 +3,7 @@ package User;
 import java.time.LocalDate;
 
 import Badges.Badges;
+import Organisations.OrganisationRoleEnums;
 import Points.Points;
 
 public class RealUser implements User, Comparable<RealUser> {
@@ -13,8 +14,12 @@ public class RealUser implements User, Comparable<RealUser> {
 	//stores an obejct whith the users badges
 	private final Badges badges;
 	
-	//Full name of the user
+	//These need to be remodeled
 	private String fullName;
+	private String birthDate;
+	private String org;
+	private String roleInOrg;
+	
 	
 	//enum list of possible roles the user can have
 	private UserRoleEnums role;
@@ -35,6 +40,17 @@ public class RealUser implements User, Comparable<RealUser> {
 		this.points = new Points(0,0);
 		this.badges = new Badges();
 		setRole(r);
+	}
+	//constructor used by the add user interface
+	public RealUser(String name, String birth, String org, String roleInOrg){
+		this.fullName = name;
+		this.birthDate = birth;
+		this.org = org;
+		this.roleInOrg = roleInOrg;
+		this.orgs = new ListOfPartOfOrganisations();
+		this.points = new Points(0,0);
+		this.badges = new Badges();
+		
 	}
 	
 	/**
@@ -144,6 +160,7 @@ public class RealUser implements User, Comparable<RealUser> {
 	public String toString(){
 		return "Name: "+this.getName()+","+this.getPoints().toString()+",Role:"+this.getRole().toString()+this.getOrganisation().toString();
 	}
+
 	
 	
 }
